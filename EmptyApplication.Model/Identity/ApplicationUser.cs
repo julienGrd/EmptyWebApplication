@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using EmptyWebApplication.Model.Auth;
+using Microsoft.AspNet.Identity;
 
 namespace EmptyApplication.Model.Identity
 {
@@ -24,5 +27,13 @@ namespace EmptyApplication.Model.Identity
         [Required]
         public DateTime JoinDate { get; set; }
 
+        //Rest of code is removed for brevity
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
+        {
+            var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+
+            // Add custom user claims here
+            return userIdentity;
+        }
     }
 }
