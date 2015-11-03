@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EmptyWebApplication.Model.Auth
+namespace EmptyApplication.Model.Auth
 {
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {

@@ -1,9 +1,10 @@
 ﻿using EmptyApplication.Model.Factory;
-using EmptyWebApplication.Model.Auth;
 using Microsoft.AspNet.Identity;
 using System.Web.Http;
 using Microsoft.AspNet.Identity.Owin;
 using System.Net.Http;
+using EmptyApplication.Model.Auth;
+using EmptyWebApplication.Auth;
 
 namespace EmptyWebApplication.Controllers
 {

@@ -100,7 +100,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Auth\ApplicationUserManager.cs" />
-    <Compile Include="Auth\CustomOAuthProvider.cs" />
     <Compile Include="Factory\ModelFactory.cs" />
     <Compile Include="Identity\ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />

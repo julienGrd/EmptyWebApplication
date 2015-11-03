@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace EmptyWebApplication.Controllers
 {
@@ -15,13 +16,14 @@ namespace EmptyWebApplication.Controllers
     public class AccountsController : BaseApiController
     {
         [Route("users")]
+        [Authorize]
         public IHttpActionResult GetUsers()
         {
-            var user = this.AppUserManager.Users.ToList();
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
 
         [Route("user/{id:guid}", Name = "GetUserById")]
+        [Authorize]
         public async Task<IHttpActionResult> GetUser(string Id)
         {
             var user = await this.AppUserManager.FindByIdAsync(Id);
@@ -36,6 +38,7 @@ namespace EmptyWebApplication.Controllers
         }
 
         [Route("user/{username}")]
+        [Authorize]
         public async Task<IHttpActionResult> GetUserByName(string username)
         {
             var user = await this.AppUserManager.FindByNameAsync(username);
@@ -48,7 +51,23 @@ namespace EmptyWebApplication.Controllers
             return NotFound();
         }
 
+        [Authorize]
+        [Route("user/{id:guid}")]
+        public async Task<IHttpActionResult> DeleteUser(string id)
+        {
+            return BadRequest("Not implemented");
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("ConfirmEmail", Name = "ConfirmEmailRoute")]
+        public async Task<IHttpActionResult> ConfirmEmail(string userId = "", string code = "")
+        {
+            return BadRequest("Not implemented");
+        }
+
         [Route("create")]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
         {
             if (!ModelState.IsValid)
@@ -77,5 +96,6 @@ namespace EmptyWebApplication.Controllers
 
             return Created(locationHeader, TheModelFactory.Create(user));
         }
+
     }
 }

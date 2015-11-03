@@ -4,13 +4,13 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using EmptyApplication.Model.Auth;
 using EmptyApplication.Model.Identity;
-using EmptyWebApplication.Model.Auth;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 
-namespace EmptyApplication.Model.Auth
+namespace EmptyWebApplication.Auth
 {
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {

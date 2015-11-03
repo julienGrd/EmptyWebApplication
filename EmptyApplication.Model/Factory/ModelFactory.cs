@@ -1,12 +1,12 @@
 ﻿using EmptyApplication.Model.Identity;
 using EmptyApplication.Model.ReturnModel;
-using EmptyWebApplication.Model.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using EmptyApplication.Model.Auth;
 
 namespace EmptyApplication.Model.Factory
 {
